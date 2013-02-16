@@ -62,7 +62,7 @@ int SSL_send_and_recv(char *send_buf, char *recv_buf)
 
   //名前解決
   if((host = gethostbyname("api.twitter.com")) == NULL) {
-    printf("ドメイン解決に失敗しました。\n");
+    printf("Failed to resolve domain name\n");
     return -1;
   }
   printf("DNS OK.\n");
@@ -77,7 +77,7 @@ int SSL_send_and_recv(char *send_buf, char *recv_buf)
 
   //接続の確立
   if(connect(sock, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
-    printf("接続できませんでした。\n");
+    printf("Failed to connect\n");
     return -1;
   }
 

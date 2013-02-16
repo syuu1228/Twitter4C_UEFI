@@ -58,9 +58,9 @@ int Twitter_GetRequestToken(struct Twitter_consumer_token *c, struct Twitter_req
 
   //時間を取得してタイムスタンプと一意な値をセット
   gettimeofday(&tv, NULL);
-  sprintf(tstamp, "%ld", tv.tv_sec);
+  sprintf(tstamp, "%d", tv.tv_sec);
 
-  sprintf(nonce_tmp, "%ld", tv.tv_usec);
+  sprintf(nonce_tmp, "%d", tv.tv_usec);
   base64_encode(nonce_tmp, strlen(nonce_tmp), nonce, 128);
   URLEncode(nonce, nonce_urlenc);
 
@@ -145,9 +145,9 @@ int Twitter_GetAccessToken(struct Twitter_consumer_token *c, struct Twitter_requ
 
   //時間を取得してタイムスタンプと一意な値をセット
   gettimeofday(&tv, NULL);
-  sprintf(tstamp, "%ld", tv.tv_sec);
+  sprintf(tstamp, "%d", tv.tv_sec);
 
-  sprintf(nonce_tmp, "%ld", tv.tv_usec);
+  sprintf(nonce_tmp, "%d", tv.tv_usec);
   base64_encode(nonce_tmp, strlen(nonce_tmp), nonce, 128);
   URLEncode(nonce, nonce_urlenc);
 
@@ -239,9 +239,9 @@ int Twitter_UpdateStatus(struct Twitter_consumer_token *c,  struct Twitter_acces
 
   //時間を取得してタイムスタンプと一意な値をセット
   gettimeofday(&tv, NULL);
-  sprintf(tstamp, "%ld", tv.tv_sec);
+  sprintf(tstamp, "%d", tv.tv_sec);
 
-  sprintf(nonce_tmp, "%ld", tv.tv_usec);
+  sprintf(nonce_tmp, "%d", tv.tv_usec);
   base64_encode(nonce_tmp, strlen(nonce_tmp), nonce, 128);
   URLEncode(nonce, nonce_urlenc);
 

@@ -42,8 +42,6 @@
     #include <sys/filio.h>
 #endif
 
-#define TRUE  1
-#define FALSE 0
 
 
 int CyaSSL_negotiate(SSL*);

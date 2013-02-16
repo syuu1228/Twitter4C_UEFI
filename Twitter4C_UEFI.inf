@@ -1,0 +1,75 @@
+## @file
+#   A simple, basic, application showing how the Hello application could be
+#   built using the "Standard C Libraries" from StdLib.
+#
+#  Copyright (c) 2010 - 2011, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution. The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = tweet
+  FILE_GUID                      = 7ad9ee8b-82dd-4a1b-862b-8e22f042e403
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 0.1
+  ENTRY_POINT                    = ShellCEntryLib
+
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF
+#
+
+[Sources]
+aes.c
+arc4.c
+asn.c
+base64.c
+coding.c
+cyassl_int.c
+cyassl_io.c
+des3.c
+extract.c
+hmac.c
+hmac-sha1.c
+integer.c
+keys.c
+main.c
+md4.c
+md5.c
+memxor.c
+misc.c
+pwdbased.c
+rabbit.c
+random.c
+rsa.c
+session.c
+sha1.c
+sha256.c
+sha.c
+ssl.c
+tls.c
+twilib.c
+urlenc.c
+
+[Packages]
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  LibC
+  LibStdio
+  DevShell
+  LibNetUtil
+  BsdSocketLib
+  EfiSocketLib
+
+
+[BuildOptions]
+  GCC:*_*_X64_CC_FLAGS          = -D__INTEL__ -DSIZEOF_LONG=8  -D__i386__

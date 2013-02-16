@@ -69,22 +69,22 @@ int main(int argc, char *argv[])
   if(access_token == NULL) {
     //リクエストトークン取得
     if(errcode = Twitter_GetRequestToken(c, r), errcode < 0) {
-      printf("リクエストトークンの取得でエラーが発生しています\n");
-      printf("エラーコード:%d\n", errcode);
+      printf("error occured during get request token\n");
+      printf("error code:%d\n", errcode);
       exit(0);
     }
     
-    printf("\n\n%s%s にアクセスしてPINコードを取得してください。\nPIN:", "https://api.twitter.com/oauth/authorize?oauth_token=", r->request_token);
+    printf("Access \n\n%s%s to get a PIN code, and input here.\nPIN:", "https://api.twitter.com/oauth/authorize?oauth_token=", r->request_token);
     if(scanf("%19s%*[^\n]", pin) == -1) exit(1);
     a->pin = pin;
 
     if(errcode = Twitter_GetAccessToken(c, r, a), errcode < 0) {
-      printf("アクセストークンの取得でエラーが発生しています\n");
-      printf("エラーコード:%d\n", errcode);
+      printf("error occured during get access token\n");
+      printf("error code:%d\n", errcode);
       exit(0);
     }
     
-    printf("\n\nようこそ %s(ID:%s) さん。\n", a->screen_name, a->user_id);
+    printf("\n\nWelcome %s.\n", a->user_id);
     
     access_token = fopen("access_token.txt", "w");
     if(access_token == NULL) {
@@ -117,8 +117,8 @@ int main(int argc, char *argv[])
   
   //strcat(status, " ");  
   if(errcode = Twitter_UpdateStatus(c, a, argv[1]), errcode < 0) {
-    printf("ツイートでエラーが発生しています\n");
-    printf("エラーコード:%d\n", errcode);
+    printf("error occured during tweet\n");
+    printf("error code:%d\n", errcode);
     exit(0);
   }
   

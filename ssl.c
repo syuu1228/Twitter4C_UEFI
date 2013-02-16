@@ -44,8 +44,6 @@
     #include <errno.h>
 #endif
 
-#define TRUE  1
-#define FALSE 0
 
 
 #ifndef min
